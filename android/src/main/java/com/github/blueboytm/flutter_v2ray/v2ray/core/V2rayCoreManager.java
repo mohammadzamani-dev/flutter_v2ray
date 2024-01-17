@@ -2,9 +2,7 @@ package com.github.blueboytm.flutter_v2ray.v2ray.core;
 
 import static com.github.blueboytm.flutter_v2ray.v2ray.utils.Utilities.getUserAssetsPath;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +12,7 @@ import android.os.CountDownTimer;
 import android.util.Log;
 
 import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
+
 
 import org.json.JSONObject;
 
@@ -247,39 +245,12 @@ public final class V2rayCoreManager {
 //        return mNotificationManager
 //    }
 
-    private NotificationManager getNotificationManager() {
-        if (mNotificationManager == null) {
-            try {
-                mNotificationManager = (NotificationManager) v2rayServicesListener.getService().getSystemService(Context.NOTIFICATION_SERVICE);
-            } catch (Exception e) {
-                return null;
-            }
-        }
-        return mNotificationManager;
-    }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private String createNotificationChannelID(final String Application_name) {
-        String notification_channel_id = "DEV7_DEV_V_E_CH_ID";
-        NotificationChannel notificationChannel = new NotificationChannel(
-                notification_channel_id, Application_name + " Background Service", NotificationManager.IMPORTANCE_DEFAULT);
-        notificationChannel.setLightColor(Color.BLUE);
-        notificationChannel.setImportance(NotificationManager.IMPORTANCE_DEFAULT);
-        Objects.requireNonNull(getNotificationManager()).createNotificationChannel(notificationChannel);
-        return notification_channel_id;
-    }
 
-    private int judgeForNotificationFlag() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT;
-        } else {
-            return PendingIntent.FLAG_UPDATE_CURRENT;
-        }
-    }
 
-    private void showNotification(final V2rayConfig v2rayConfig) {
-        return;
-    }
+
+
+
 
     public boolean isV2rayCoreRunning() {
         if (v2RayPoint != null) {
