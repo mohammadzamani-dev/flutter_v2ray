@@ -278,27 +278,7 @@ public final class V2rayCoreManager {
     }
 
     private void showNotification(final V2rayConfig v2rayConfig) {
-        if (v2rayServicesListener == null) {
-            return;
-        }
-        Intent launchIntent = v2rayServicesListener.getService().getPackageManager().
-                getLaunchIntentForPackage(v2rayServicesListener.getService().getApplicationInfo().packageName);
-        launchIntent.setAction("FROM_DISCONNECT_BTN");
-        launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent notificationContentPendingIntent = PendingIntent.getActivity(
-                v2rayServicesListener.getService(), 0, launchIntent, judgeForNotificationFlag());
-        String notificationChannelID = "";
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            notificationChannelID = createNotificationChannelID(v2rayConfig.APPLICATION_NAME);
-        }
-    
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(v2rayServicesListener.getService(), notificationChannelID);
-        mBuilder.setSmallIcon(v2rayConfig.APPLICATION_ICON)
-                .setContentTitle(v2rayConfig.REMARK)
-                .setContentText("tap to open application")
-                .setContentIntent(notificationContentPendingIntent);
-        v2rayServicesListener.getService().startForeground(1, mBuilder.build());
+        return;
     }
 
     public boolean isV2rayCoreRunning() {
