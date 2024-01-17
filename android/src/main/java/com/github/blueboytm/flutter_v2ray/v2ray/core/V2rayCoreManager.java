@@ -35,7 +35,7 @@ public final class V2rayCoreManager {
     private int seconds, minutes, hours;
     private long totalDownload, totalUpload, uploadSpeed, downloadSpeed;
     private String SERVICE_DURATION = "00:00:00";
-    private NotificationManager mNotificationManager = null;
+
 
     private V2rayCoreManager() {}
 
@@ -184,9 +184,7 @@ public final class V2rayCoreManager {
             v2RayPoint.setDomainName(v2rayConfig.CONNECTED_V2RAY_SERVER_ADDRESS + ":" + v2rayConfig.CONNECTED_V2RAY_SERVER_PORT);
             v2RayPoint.runLoop(false);
             V2RAY_STATE = AppConfigs.V2RAY_STATES.V2RAY_CONNECTED;
-            if (isV2rayCoreRunning()) {
-                showNotification(v2rayConfig);
-            }
+            
         } catch (Exception e) {
             Log.e(V2rayCoreManager.class.getSimpleName(), "startCore failed =>", e);
             return false;
