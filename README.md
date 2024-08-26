@@ -22,13 +22,13 @@
 
 
 ## Change logs
-### 1.0.6
+### 1.0.8
 
-* fix #24 issue: fix notification and background service
-* fix #11 issue: add bypassSubnets for bypass lan traffic
-* add getConnectedServerDelay
-* add getCoreVersion
-* optimize java codes
+* fix registerReceiver error
+* fix build for API 34 ( check IntentFilter V2RAY_CONNECTION_INFO )
+* change type of usage statistic
+* fix deprecated apis
+* update v2ray core to 1.8.17
 
 #### [see more](./CHANGELOG.md)
 
@@ -43,9 +43,9 @@
 
 | Platform  | Status    | Info |
 | --------- | --------- | ---- |
-| Android   | Done ✅   | Xray v24 v1.8.1.4 |
+| Android   | Done ✅   | Xray 1.8.7 |
 | IOS       | Soon ❎   | - |
-| Desktop   | Soon ❎   | - |
+| Desktop   | Done ✅   | For purchase: [t.me/blueboy_tm](https://t.me/blueboy-tm) |
 
 <br>
 

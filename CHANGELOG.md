@@ -1,3 +1,18 @@
+## 1.0.8
+
+* fix registerReceiver error
+* fix build for API 34 ( check IntentFilter V2RAY_CONNECTION_INFO )
+* change type of usage statistic
+* fix deprecated apis
+* update v2ray core to 1.8.17
+
+## 1.0.7
+
+* fix v2rayBroadCastReceiver null exception
+* fix #35: registerReceiver error
+* update libv2ray to 1.8.7
+* fix #43: Adding DNS servers to the VPN service
+
 ## 1.0.6
 
 * fix #24 issue: fix notification and background service

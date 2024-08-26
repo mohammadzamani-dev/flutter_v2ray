@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
         bypassSubnets: bypassSubnets,
       );
     } else {
-      if (context.mounted) {
+      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Permission Denied'),
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
         final V2RayURL v2rayURL = FlutterV2ray.parseFromURL(link);
         remark = v2rayURL.remark;
         config.text = v2rayURL.getFullConfiguration();
-        if (context.mounted) {
+        if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text(
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
           );
         }
       } catch (error) {
-        if (context.mounted) {
+        if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
     } else {
       delay = await flutterV2ray.getServerDelay(config: config.text);
     }
-    if (!context.mounted) return;
+    if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
@@ -209,10 +209,10 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         const Text('Speed:'),
                         const SizedBox(width: 10),
-                        Text(value.uploadSpeed),
+                        Text(value.uploadSpeed.toString()),
                         const Text('↑'),
                         const SizedBox(width: 10),
-                        Text(value.downloadSpeed),
+                        Text(value.downloadSpeed.toString()),
                         const Text('↓'),
                       ],
                     ),
@@ -222,10 +222,10 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         const Text('Traffic:'),
                         const SizedBox(width: 10),
-                        Text(value.upload),
+                        Text(value.upload.toString()),
                         const Text('↑'),
                         const SizedBox(width: 10),
-                        Text(value.download),
+                        Text(value.download.toString()),
                         const Text('↓'),
                       ],
                     ),
